@@ -1,0 +1,73 @@
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+    <div id="carouselExampleCaptions" class="carousel slide" style="margin: 0%; padding: 0%;">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'imagenes/Orfebreria.jpg' %}" class="d-block w-100" alt="500px" width="500px">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 style="color: black;">Orfebreria</h5>
+              <p style="color: black;">trabajo de metales para la elaboración de piezas de joyería y otros elementos decorativos. Tradicionalmente se realiza con metales y piedras preciosas, utilizando diversas técnicas como filigrana, repujado, grabado en metal, engaste de piedras preciosas y esmaltado, entre otras.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'imagenes/macrameCarrusel.jpg' %}" class="d-block w-100" alt="500px" width="500px">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Macrame</h5>
+              <p>arte textil de crear piezas tejidas usando NUDOS. La palabra Macramé de origen francés significa Nudo y es considerado un arte antiguo donde únicamente se utilizan las manos para ejecutarlo.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'imagenes/AcuarelaCarrusel.jpg' %}" class="d-block w-100" alt="500px" width="500px">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 style="color: black;">Pintura en acuarela</h5>
+              <p style="color: black;">La acuarela es un tipo de pintura compuesta por pigmentos que utilizan como aglutinante la goma arábiga, y el agua como diluyente. Tiene una particularidad respecto otros tipos de pintura, y es que se puede pintar con capas semi-transparentes.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+<br>
+<p><em><h3 style="color: white;">¿Quienes somos?</h3></em></p>
+<h5 style="color: white;">El propósito de una cooperativa artística es reunir a artistas y creativos con el objetivo de apoyarse mutuamente y trabajar juntos para alcanzar sus metas artísticas y financieras. Al formar una cooperativa, los artistas pueden colaborar en la producción y promoción de sus obras de arte, compartir recursos y habilidades, y trabajar juntos para llegar a un público más amplio y aumentar sus ingresos.
+  Además, las cooperativas artísticas también pueden ser una forma efectiva de fomentar el desarrollo cultural y artístico de una comunidad. Al trabajar juntos, los artistas pueden crear eventos culturales y educativos, promover la creatividad y el desarrollo artístico, y mejorar la calidad de vida de la comunidad en general.
+  sin fines de lucro, que desde hace 20 años (12 de julio de 2002) trabaja para la valoración de las artesanías existentes en todo el territorio nacional. Nuestro objetivo principal es impulsar, formular e implementar iniciativas que aporten de manera pertinente y significativa al sector artesanal nacional, considerando su dimensión cultural, social y económica, con enfoque de derechos culturales. </h5>
+  <h5 style="color: white;"> Con esta pagina buscamos ampliar nuestras ventas a mas comunidades, esperando mostrar y atraer a nuevos exponentes para asi generar un grupo mas solido y variado siempre enfocado en el ambito artistico.</h5>
+<br>
+<br>
+<hr style="color: black;">
+<div style="text-align: center; line-height:0">
+    <img src="{% static 'imagenes/MacrameGaleria.jpg' %}" id="Img1" alt="300px" width="500px" height="400px">
+    <img src="{% static 'imagenes/AcuarelaCarrusel.jpg' %}" id="Img2" alt="300px" width="500px" height="400px">
+</div> 
+<hr style="color: black;">
+<footer>
+<div class="container-fluid" >
+  <h6 style="color:black; text-align: left;">&copy COPYRIGHT PobleteVivar. &reg; TODOS LOS DERECHOS RESERVADOS. </h6>
+    <table class="Redes" border="5" style="float: right;">
+      <tr>
+        <td><li><a href="https://www.instagram.com/" class="instagram"><img src="{% static 'imagenes/instagram.jpg' %}" width="50px"></a></li></td>
+        <td><li><a href="https://www.facebook.com/" class="facebook"><img src="{% static 'imagenes/facebook.jpg' %}" width="50px"></a></li></td>
+        <td><li><a href="https://www.whatsapp.com/" class="whatsaap"><img src="{% static 'imagenes/whatsapp.jpg' %}" width="50px"></a></li></td>
+      </tr>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,86 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+        <div class="container gallery-container">
+                <h1>Galeria de trabajos</h1>
+                    <p class="page-description text-center"></p>
+            
+            <div class="tz-gallery">
+        
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{% static 'imagenes/Galeria1.jpg' %}">
+                            <img src="{% static 'imagenes/Galeria1.jpg' %}" alt="Galeria1">
+                        </a>
+                        <h2 style="color: white;">Artesana Mirna Riquelme</h2>
+                        <h5 style="color:black">Tejido en lana hipoalergenica reciclada, tecnica a crochet, estilo navideño</h5>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{% static 'imagenes/Galeria2.jpg' %}">
+                            <img src="{% static 'imagenes/Galeria2.jpg' %}" alt="Galeria2">
+                        </a>
+                        <h2 style="color: white;">Artesano Manuel Rodriguez</h2>
+                        <h5 style="color:black">Tecnica en fieltro, pintura en lienzo</h5>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <a class="lightbox" href="{% static 'imagenes/Galeria3.jpg' %}">
+                            <img src="{% static 'imagenes/Galeria3.jpg' %}" alt="Galeria3">
+                        </a>
+                        <h2 style="color: white;">Artesano Oscar Zepeda</h2>
+                            <h5 style="color:black">Tallado en lamina de plata 925, tecnica manual, joyeria mapuche.</h5>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{% static 'imagenes/Galeria4.jpg' %}">
+                            <img src="{% static 'imagenes/Galeria4.jpg' %}" alt="Galeria4">
+                        </a>
+                        <h2 style="color: white;">Artesana Maria Ines Toledo</h2>
+                            <h5 style="color:black">Taller de corte de precision en lamina de plata para joyeria.</h5>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{% static 'imagenes/Galeria5.jpg' %}">
+                            <img src="{% static 'imagenes/Galeria5.jpg' %}" alt="Galeria5">
+                        </a>
+                        <h2 style="color: white;">Artesana Gloria Lopez</h2>
+                        <h5 style="color:black">Ensamblaje de bistureria artesanal.</h5>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{% static 'imagenes/Galeria6.jpg' %}">
+                            <img src="{% static 'imagenes/Galeria6.jpg' %}" alt="Galeria6">
+                        </a>
+                        <h2 style="color: white;">Artesana Lorena Diaz</h2>
+                        <h5 style="color:black">Tejido con hilo, en madera. mandala con tecnica de clavo </h5>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{% static 'imagenes/Galeria7.jpg' %}">
+                            <img src="{% static 'imagenes/Galeria7.jpg' %}" alt="Galeria7">
+                        </a>
+                        <h2 style="color: white;">Artesanas Camila y Massiel</h2>
+                        <h5 style="color:white">Tecnica tejido macrame para armar atrapasueños.</h5>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{% static 'imagenes/Galeria8.jpg' %}">
+                            <img src="{% static 'imagenes/Galeria8.jpg' %}" alt="Galeria8">
+                        </a>
+                        <h2 style="color: white;">Artesana Ricardo Vial</h2>
+                        <h5 style="color:white">Pintura tecnica en oleo en zapatillas.</h5>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{% static 'imagenes/Galeria9.jpg' %}">
+                            <img src="{% static 'imagenes/Galeria9.jpg' %}" alt="Galeria9">
+                        </a>
+                        <h2 style="color: white;">Artesana Natlyne</h2>
+                        <h5 style="color:white">Tecnica en resina y leche materna para bisuteria.</h5>
+                    </div>
+                </div>
+        
+            </div>
+        
+        </div>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+       
+        {% endblock %}

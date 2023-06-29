@@ -1,0 +1,48 @@
+
+     
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+     <hr>
+      <h6 style="color: white;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">CONOCE NUESTRO TRABAJO Y PROPOSITO</h6>
+      <hr>
+    <table class="Mision" border="5">
+        <tr>
+          <td><H2 style="color: white;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Mision</H2></td>
+        </tr>
+        <tr>
+          <td><p><h6 style="color: white; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Crear un ambiente colaborativo y solidario entre artistas y creativos, que permita el desarrollo <br>
+            y promoción de su trabajo, tanto en el mercado local como internacional, a través de la producción y venta <br>
+            de obras de arte, y la prestación de servicios creativos.
+            Fomentar la creatividad y el desarrollo artístico de sus miembros, a través de la organización y participación<br>
+            en eventos culturales, talleres y exposiciones, que contribuyan al enriquecimiento cultural de la comunidad.
+            Proporcionar un modelo de negocio sostenible y justo para los artistas, donde se comparten los recursos y los<br>
+            beneficios, y se promueve la igualdad y la equidad entre los miembros de la cooperativa. Además, la misión de una<br>
+            cooperativa artística también puede incluir la promoción de los valores éticos y culturales, la defensa de los derechos<br>
+            de los artistas y creativos, y la contribución al desarrollo social y económico de la comunidad en la que se encuentra.</h6></p></td>
+          <td><img src="{% static 'imagenes/telar.jpeg' %}" class="img-thumbnail" alt="..." width="900px"></td> 
+        </tr>
+    </table>
+    <hr>
+    <table class="Vision" border="5" >
+        <tr>
+          <td><h2 style="color: white;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Vision</h2></td> 
+        </tr>
+        <tr>
+          <td><h6 style="color: white;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">ser una imagen futura de cómo la organización desea verse en el futuro, de acuerdo con sus objetivos y valores. Algunas<br>
+            posibles visiones para una cooperativa artística podrían incluir:
+            Ser reconocidos como una de las cooperativas artísticas líderes en la región, con una amplia base de miembros y una sólida<br>
+            reputación por la calidad y diversidad de su trabajo. Ser una fuente de inspiración y educación para los artistas y creativos<br>
+            de la comunidad, a través de la organización y participación en talleres, conferencias y exposiciones que promuevan el desarrollo<br>
+            de habilidades y conocimientos. Establecer alianzas estratégicas con organizaciones culturales y educativas a nivel local, nacional<br>
+            e internacional, para ampliar la exposición de los trabajos de sus miembros y generar nuevas oportunidades de colaboración y crecimiento.
+            Contribuir activamente al desarrollo cultural y económico de la comunidad, a través de la organización y participación en eventos<br>
+            culturales y sociales, y la creación de empleo y oportunidades económicas para sus miembros.</h6></td> 
+          <td><img src="{% static 'imagenes/vision.jpg' %}" class="img-thumbnail" alt="..." width="900px"></td>  
+        </tr>
+      </table>
+{% endblock %}

@@ -1,0 +1,44 @@
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+
+  <h2>Bienvenido/a, {{ user.username }}</h2>
+  <a href="{% url 'Principal' %}">Salir</a>
+  <!-- Contenido de tu página de compra -->
+
+
+  <div class="container">
+    <h1>Producto</h1>
+    <table id="customers" border="1">
+        <thead>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>descripcion</th>
+            <th>valor</th>
+        </thead>
+        {% for x in alu %}
+          <tr>
+              <td>{{x.id}}</td>
+              <td>{{x.nombre}}</td>
+              <td>{{x.descripcion}}</td>
+              <td>{{x.valor}}</td>
+              <td>
+                  <a href="actualizar/{{x.id}}"><button id="up">Actualizar</button></a>
+              </td>
+              <td>
+                <a href="eliminar/{{x.id}}"><button id="del">Eliminar</button></a>
+            </td>
+          </tr>
+         {% endfor %}
+    </table>
+    <br><br>
+    <a href="{% url 'agregar' %}"><button id="new3">Agregar producto</button></a>
+</div>
+    {% endblock %}

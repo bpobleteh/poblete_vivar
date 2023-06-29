@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+        <div class="container gallery-container">
+                <h1>Conoce nuestra ubicacion</h1>
+                    <p class="page-description text-center"></p>
+            
+        <div class="tz-gallery">
+        
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{% static 'imagenes/Galeria1.jpg' %}">
+                            <img src="{% static 'imagenes/ubicacion.jpg' %}" alt="Ubicacion">
+                        </a>
+                        <h2 style="color: white;">Grupo Cero</h2>
+                        <h5 style="color:black">Nos ubicamos en camino las violetas parcela 5, comuna de padre hurtado</h5>
+                    </div>
+                    <div id="map">
+                        <script src="{% static 'js/script.js' %}"></script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+                    </div>
+<div class="container gallery-container">
+        <h1>Conoce nuestra Carta</h1>
+            <p class="page-description text-center"></p>
+                    
+            <div class="tz-gallery">
+                
+                <div class="row">
+                            <div class="col-sm-6 col-md-4">
+                                <a class="lightbox" href="{% static 'imagenes/fotomenu.jpg' %}">
+                                    <img src="{% static 'imagenes/fotomenu.jpg' %}" alt="Menu">
+                                </a>
+                                <h2 style="color: white;">Menu</h2>
+                                <h5 style="color:black">contamos con gran variedad de productos de cafeteria.</h5>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <a class="lightbox" href="{% static 'imagenes/menu.jpg' %}">
+                                    <img src="{% static 'imagenes/menu.jpg' %}" alt="Menu1">
+                                </a>
+                                <h2 style="color: white;">Menu</h2>
+                                <h5 style="color:black">Revisa nuestros precios</h5>
+                            </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+       
+      
+     {% endblock %}               
