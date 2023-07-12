@@ -22,13 +22,16 @@
             <th>Nombre</th>
             <th>descripcion</th>
             <th>valor</th>
+            <th>fotografia</th>
+            <th colspan="2" id="mid">Realizar</th>
         </thead>
-        {% for x in alu %}
+        {% for x in pro %}
           <tr>
               <td>{{x.id}}</td>
               <td>{{x.nombre}}</td>
               <td>{{x.descripcion}}</td>
               <td>{{x.valor}}</td>
+              <td>{{x.fotografia}}</td>
               <td>
                   <a href="actualizar/{{x.id}}"><button id="up">Actualizar</button></a>
               </td>

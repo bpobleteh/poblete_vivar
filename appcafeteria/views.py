@@ -5,8 +5,9 @@ from django.contrib.auth import logout
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Producto
+from django.core.files.storage import default_storage
 
-# Create your views here.
+
 def Principal(request):
     return render(request,'Principal.html')
 def Segunda(request):
@@ -36,13 +37,11 @@ def Sexta(request):
             messages.error(request, 'La contraseña debe tener al menos 8 caracteres, 1 letra y 1 número.')
             return redirect('Sexta')
 
-        # Validación adicional: no contener información personal
         personal_info = [first_name, last_name, username]
         if any(info.lower() in password.lower() for info in personal_info):
             messages.error(request, 'La contraseña no puede contener información personal.')
             return redirect('Sexta')
 
-        # Crear usuario
         user = User.objects.create_user(username=username, password=password, first_name=first_name, last_name=last_name)
         user.save()
 
@@ -53,40 +52,63 @@ def Sexta(request):
 def Septima(request):
     pro=Producto.objects.all()
     return render(request,'Septima.html',{'pro':pro})
+
 def Octava(request):
-    return render(request,'Octava.html')
-def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('Septima')  # Reemplaza 'nombre_de_tu_ruta_comprar' por la ruta adecuada
+            if user.is_superuser:
+                return redirect('agregar')
+            else:
+                return redirect('lista_productos')
         else:
-            error_message = 'Nombre de usuario o contraseña incorrectos.'
-            return render(request, 'Octava.html', {'error_message': error_message})
+            # El usuario no existe o las credenciales son inválidas
+            return render(request, 'Octava.html', {'error': 'Credenciales inválidas'})
     else:
         return render(request, 'Octava.html')
 
-def logout_view(request):
+def logout(request):
     logout(request)
-    return redirect('Octava')
-def agregar(request):
-    return render(request,'agregar.html')
+    return redirect('Principal')
 
+@login_required(login_url='Octava')
+def agregar(request):
+    if not request.user.is_superuser:
+        return redirect('Prinicipal')
+    # Lógica para agregar productos a la base de datos
+    return render(request, 'agregar.html')
+
+@login_required(login_url='Octava')
+def lista_productos(request):
+    # Lógica para mostrar la lista de productos y permitir compras
+    return render(request, 'lista_productos.html')
+
+def agregar(request):
+    if request.method == 'POST':
+        form = Producto(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_productos')
+    else:
+        form = Producto()
+    return render(request, 'agregar.html', {'form': form})
 def agregarrec(request):
-    x=request.POST['nombre']
-    y=request.POST['descripcion']
-    z=request.POST['valor']
-    pro=Producto(nombre=x,descripcion=y,valor=z)
+    x = request.POST['nombre']
+    y = request.POST['descripcion']
+    z = request.POST['valor']
+    fotografia = request.FILES['fotografia']  
+    nombre_archivo = default_storage.save('agregar' + fotografia.name, fotografia)
+    pro = Producto(nombre=x, descripcion=y, valor=z, fotografia=nombre_archivo)  
     pro.save()
-    return redirect("/")
+    return redirect('Septima')
 
 def eliminar(request,id):
     pro=Producto.objects.get(id=id)
     pro.delete()
-    return redirect("/")
+    return redirect("Septima")
 
 def actualizar(request,id):
     pro=Producto.objects.get(id=id)
@@ -101,4 +123,9 @@ def actualizarrec(request,id):
     pro.descripcion=y
     pro.valor=z
     pro.save()
-    return redirect("/")
+    return redirect(to="Septima")
+def lista_productos(request):
+    productos = Producto.objects.all()
+    return render(request, 'lista_productos.html', {'productos': productos})
+
+
