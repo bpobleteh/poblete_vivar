@@ -1,53 +1,34 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
-
-{% load crispy_forms_tags %}
-
-<h3>REGISTRO DE USUARIO</h3>
-
 <br>
-
-<form action="" method="post">
+<h3 style="color: white; text-align: center;">REGISTRO DE USUARIO</h3>
+<br>
+<div class="contenedor1">
+  <form action="" method="post">
     {% csrf_token %}
-    <div class="container gallery-container">
-      <h1>Registrar</h1>
-          <p class="page-description text-center"></p>
-  
-  <div class="tz-gallery">
-  
-      <div class="row">
-          <div class="col-sm-6 col-md-4">
-              <a class="lightbox" href="{% static 'imagenes/cafeteria1.jpg' %}">
-                  <img src="{% static 'imagenes/Ingresar.jpg' %}" alt="cafeteria1">
-              </a>
-              <h2 style="color: white;">Ingresa tus Datos</h2>
-          </div>
-  <div class="col-sm-4 col-md-6" >
-      
-        <form action="{% url 'Sexta' %}" method="post">
-          {% csrf_token %}
-          <label for="first_name" style="color: white;">Nombre:</label>
-          <input type="text" id="first_name" name="first_name" required minlength="3"><br><br>
-          <label for="last_name" style="color: white;">Apellido:</label>
-          <input type="text" id="last_name" name="last_name" required minlength="3"><br><br>
-          <label for="username" style="color: white;">Nombre de usuario:</label>
-          <input type="text" id="username" name="username" required minlength="3"><br><br>
-          <label for="password" style="color: white;">Contraseña:</label>
-          <input style type="password" id="password" name="password" required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"><br>
-          <small style="color: white;">La contraseña debe tener al menos 8 caracteres, 1 letra y 1 número.</small><br><br>
-          <label style="color: white;" for="confirm_password">Repetir contraseña:</label>
-          <input type="password" id="confirm_password" name="confirm_password" required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"><br><br>
-          <button type="submit">Registrar</button>
-        </form>
-          <a href="{% url 'home' %}" class="card-link">Inicio</a>
-          <a href="{% url 'login' %}" class="card-link">Iniciar Sesion</a>
-
-          <button class="btn btn-sm btn-primary float-end" type="submit">Registrarse</button>
-        </div>
+    <div class="contenedor2">
+      <a class="lightbox" href="{% static 'imagenes/cafeteria1.jpg' %}">
+        <img src="{% static 'imagenes/Ingresar.jpg' %}" alt="cafeteria1">
+      </a>
+      <h2 style="color: black; text-align: right;">Ingresa tus Datos</h2>
+    </div>
+    <div class="contenedor3">
+      <form style="text-align: right; color: black;">
+        <label for="username" style="color: black;">Nombre de usuario:</label>
+        <input type="text" id="username" name="username" required minlength="3"><br><br>
+        <label for="password" style="color: black;">Contraseña:</label>
+        <input type="password" id="password" name="password" required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"><br>
+        <small style="color: black;">La contraseña debe tener al menos 8 caracteres, 1 letra y 1 número.</small><br><br>
+        <label style="color: black;" for="confirm_password">Repetir contraseña:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"><br><br>
+        <button type="submit">Registrar</button>
+      </form>
+      <div>
+        <a href="{% url 'home' %}" class="card-link">Inicio</a>
+        <a href="{% url 'login' %}" class="card-link">Iniciar Sesión</a>
       </div>
-       
-</form>
-
-    {% endblock %}
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,7 +1,7 @@
 .container.gallery-container {
     background: linear-gradient(gray,black);
     color: #35373a;
-    min-height: 100vh;
+    min-height: 200vh;
     border-radius: 20px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
 }
