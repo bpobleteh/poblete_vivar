@@ -10,7 +10,7 @@
 
 
   <h2>Bienvenido/a, {{ user.username }}</h2>
-  <a href="{% url 'Principal' %}">Salir</a>
+  <a href="{% url 'home' %}">Salir</a>
   <!-- Contenido de tu página de compra -->
 
 
@@ -32,6 +32,7 @@
               <td>{{x.descripcion}}</td>
               <td>{{x.valor}}</td>
               <td>{{x.fotografia}}</td>
+              <td><img src="{{ x.fotografia.url }}" alt="{{x.nombre}}"></td>
               <td>
                   <a href="actualizar/{{x.id}}"><button id="up">Actualizar</button></a>
               </td>

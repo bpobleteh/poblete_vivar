@@ -1,4 +1,4 @@
-{% extends 'templates/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
@@ -11,6 +11,10 @@
         <div class="card-body">
           <h5 class="card-title">Ingrese sus Credenciales</h5>
           {{ form | crispy }}
+          <label for="username">Usuario:</label>
+          <input type="text" name="username" required><br>
+          <label for="password">Contraseña:</label>
+          <input type="password" name="password" required><br>
           <a href="{% url 'home' %}" class="card-link">Inicio</a>
           <a href="{% url 'register'%}" class="card-link">Registrarse</a>
 

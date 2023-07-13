@@ -55,6 +55,8 @@ def Septima(request):
 @login_required
 def products(request):
     return render(request, 'products.html')
+def login(request):
+    return render(request, 'registration/login.html')
 def register(request):
     data = {
         'form': CustomUserCreationForm()
