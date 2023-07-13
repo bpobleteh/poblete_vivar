@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for producto in productos %}
+
+
+<div class="container gallery-container">
+    <div class="col-sm-6 col-md-4">
+        <p class="page-description text-center"></p>
+                <h3>{{ producto.nombre }}</h3>
+                <p>{{ producto.descripcion }}</p>
+                <p>Precio: ${{ producto.precio }}</p>
+                <p><img src="{{ producto.fotografia.url }}" alt="Fotografía del producto"></p>
+                <button>Comprar</button>
+        </div> 
+</div> 
+
+
+{% endfor %}
+{% endblock %}

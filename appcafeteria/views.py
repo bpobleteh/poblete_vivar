@@ -1,15 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import Producto
 from django.core.files.storage import default_storage
+from .forms import CustomUserCreationForm
 
-
-def Principal(request):
-    return render(request,'Principal.html')
+def home(request):
+    return render(request,'home.html')
 def Segunda(request):
     return render(request,'Segunda.html')
 def Tercera(request):
@@ -53,55 +52,38 @@ def Septima(request):
     pro=Producto.objects.all()
     return render(request,'Septima.html',{'pro':pro})
 
-def Octava(request):
+@login_required
+def products(request):
+    return render(request, 'products.html')
+def register(request):
+    data = {
+        'form': CustomUserCreationForm()
+    }
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            if user.is_superuser:
-                return redirect('agregar')
-            else:
-                return redirect('lista_productos')
-        else:
-            # El usuario no existe o las credenciales son inválidas
-            return render(request, 'Octava.html', {'error': 'Credenciales inválidas'})
-    else:
-        return render(request, 'Octava.html')
-
-def logout(request):
-    logout(request)
-    return redirect('Principal')
-
-@login_required(login_url='Octava')
-def agregar(request):
-    if not request.user.is_superuser:
-        return redirect('Prinicipal')
-    # Lógica para agregar productos a la base de datos
-    return render(request, 'agregar.html')
-
-@login_required(login_url='Octava')
-def lista_productos(request):
-    # Lógica para mostrar la lista de productos y permitir compras
-    return render(request, 'lista_productos.html')
-
+        user_creation_form = CustomUserCreationForm(data=request.POST)
+        if user_creation_form.is_valid():
+            user_creation_form.save()
+            user = authenticate(username=user_creation_form.cleaned_data['username'], password=user_creation_form.cleaned_data['password1'])
+            login(request,user)
+            return redirect('home')
+    return render(request, 'registration/register.html',data)
 def agregar(request):
     if request.method == 'POST':
         form = Producto(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('lista_productos')
+            return redirect('products')
     else:
         form = Producto()
     return render(request, 'agregar.html', {'form': form})
+
 def agregarrec(request):
     x = request.POST['nombre']
     y = request.POST['descripcion']
     z = request.POST['valor']
-    fotografia = request.FILES['fotografia']  
-    nombre_archivo = default_storage.save('agregar' + fotografia.name, fotografia)
-    pro = Producto(nombre=x, descripcion=y, valor=z, fotografia=nombre_archivo)  
+    fotografia = request.FILES['fotografia']
+    nombre_archivo = default_storage.save('fotografia' + fotografia.name, fotografia)
+    pro = Producto(nombre=x, descripcion=y, valor=z, fotografia=nombre_archivo)
     pro.save()
     return redirect('Septima')
 
@@ -124,8 +106,8 @@ def actualizarrec(request,id):
     pro.valor=z
     pro.save()
     return redirect(to="Septima")
-def lista_productos(request):
+def products(request):
     productos = Producto.objects.all()
-    return render(request, 'lista_productos.html', {'productos': productos})
+    return render(request, 'products.html', {'productos': productos})
 
 
