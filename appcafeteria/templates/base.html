@@ -54,18 +54,24 @@
                 <a class="nav-link" href="Quinta.html"><i class="fas fa-cogs"></i>CONTACTANOS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="register.html"><i class="fas fa-cogs"></i>REGISTRAR</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="Septima.html"><i class="fas fa-cogs"></i>LISTA PRODUCTOS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login.html"><i class="fas fa-cogs"></i>INGRESAR</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="products.html"><i class="fas fa-cogs"></i>COMPRAR</a>
-              </li>              
-              </li>
+              </li>    
+              {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'login'%}">Ingresar</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'register'%}">Registrarse</a>
+                        </li>
+                        {% endif %}          
+
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">

@@ -1,49 +1,72 @@
-.contenedor1 {
-    width: 1100px;
-    background: linear-gradient(to right, white, gray);
-    height: 100vh;
+body {
+    background-color: #FCEFF0;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  h3 {
+    color: #F38FB1;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .contenedor1 {
     display: flex;
-    justify-content: space-between;
-    margin: 8%;
-    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
   
   .contenedor2 {
-    width: 40%;
-    background: linear-gradient(to right, gray, pink);
-    color: pink;
-    padding: 20px;
-    position: absolute;
-    display: flex;
-    margin:auto
-    
+    flex: 0 0 40%;
+    background-color: #FDF3F4;
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .contenedor2 img {
+    max-width: 100%;
+    height: auto;
   }
   
   .contenedor3 {
-    width: 60%;
-    background-color: pink;
-    color: black;
-    padding: 20px;
-  }
-  
-  .contenedor3 form {
-    display: flex;
-    flex-direction: column;
+    flex: 0 0 60%;
+    background-color: #FFFFFF;
+    padding: 50px;
   }
   
   .contenedor3 label {
-    margin-bottom: 5px;
+    color: #333333;
+    font-weight: bold;
   }
   
   .contenedor3 input {
-    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  
+  .contenedor3 small {
+    color: #777777;
   }
   
   .contenedor3 button {
-    margin-top: 10px;
+    background-color: #F38FB1;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
   }
   
-  .contenedor3 .card-link {
-    margin-left: 5px;
+  .card-link {
+    display: inline-block;
+    margin-left: 10px;
+    color: #F38FB1;
+    text-decoration: none;
   }
   

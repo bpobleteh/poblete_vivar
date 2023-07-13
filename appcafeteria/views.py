@@ -28,36 +28,14 @@ def login(request):
     return render(request, 'registration/login.html')
 def register(request):
     if request.method == 'POST':
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        username = request.POST['username']
-        password = request.POST['password']
-        confirm_password = request.POST['confirm_password']
-        if len(first_name) < 3 or len(last_name) < 3:
-            messages.error(request, 'El nombre y el apellido deben tener al menos 3 letras.')
-            return redirect('registration/register')
-
-        if password != confirm_password:
-            messages.error(request, 'Las contraseñas no coinciden.')
-            return redirect('registration/register')
-
-        if len(password) < 8 or not any(char.isdigit() for char in password) or not any(char.isalpha() for char in password):
-            messages.error(request, 'La contraseña debe tener al menos 8 caracteres, 1 letra y 1 número.')
-            return redirect('registration/register')
-
-        personal_info = [first_name, last_name, username]
-        if any(info.lower() in password.lower() for info in personal_info):
-            messages.error(request, 'La contraseña no puede contener información personal.')
-            return redirect('registration/register')
-
-        user = User.objects.create_user(username=username, password=password, first_name=first_name, last_name=last_name)
-        user.save()
-
-        messages.success(request, 'Registro exitoso. Ahora puedes iniciar sesión.')
-        return redirect('registration/login')
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
     else:
-        return render(request, 'registration/register.html')
-
+        form = CustomUserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
 def agregar(request):
     if request.method == 'POST':
         form = Producto(request.POST, request.FILES)

@@ -15,6 +15,7 @@
 
 
   <div class="container">
+    {% if user.is_superuser %}
     <h1>Producto</h1>
     <table id="customers" border="1">
         <thead>
@@ -44,5 +45,6 @@
     </table>
     <br><br>
     <a href="{% url 'agregar' %}"><button id="new3">Agregar producto</button></a>
+    {% endif %}
 </div>
     {% endblock %}
