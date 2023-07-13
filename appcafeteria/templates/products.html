@@ -15,7 +15,14 @@
             <div class="image-container">
               <img class="lightbox" src="{{ producto.fotografia.url }}" alt="Fotografía del producto">
             </div>
-            <button>Comprar</button>
+            <button onclick="mostrarAlerta()">Comprar</button>
+
+<script>
+function mostrarAlerta() {
+  alert("Tu producto ha sido agregado al carrito");
+}
+</script>
+
           </div>
         </div>
         {% endfor %}
